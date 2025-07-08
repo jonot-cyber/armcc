@@ -10,17 +10,17 @@
     pkgs = import nixpkgs { inherit system; };
   in {
     packages = rec {
-      arm40771 = pkgs.callPackage ./default.nix {};
-      arm40821 = arm40771.overrideAttrs { version = "4.0.821"; __intentionallyOverridingVersion = true; };
-      arm411049 = arm40771.overrideAttrs { version = "4.1.1049"; __intentionallyOverridingVersion = true; };
-      arm411440 = arm40771.overrideAttrs { version = "4.1.1440"; __intentionallyOverridingVersion = true; };
-      arm411454 = arm40771.overrideAttrs { version = "4.1.1454"; __intentionallyOverridingVersion = true; };
-      arm41561 = arm40771.overrideAttrs { version = "4.1.561"; __intentionallyOverridingVersion = true; };
-      arm41713 = arm40771.overrideAttrs { version = "4.1.713"; __intentionallyOverridingVersion = true; };
-      arm41791 = arm40771.overrideAttrs { version = "4.1.791"; __intentionallyOverridingVersion = true; };
-      arm41894 = arm40771.overrideAttrs { version = "4.1.894"; __intentionallyOverridingVersion = true; };
-      arm41921 = arm40771.overrideAttrs { version = "4.1.921"; __intentionallyOverridingVersion = true; };
-      arm50482 = arm40771.overrideAttrs { version = "5.04.82"; __intentionallyOverridingVersion = true; };
+      arm40771 = pkgs.callPackage ./default.nix { pversion = "4.0.771"; };
+      arm40821 = pkgs.callPackage ./default.nix { version = "4.0.821"; };
+      arm411049 = pkgs.callPackage ./default.nix { pversion = "4.1.1049"; };
+      arm411440 = pkgs.callPackage ./default.nix { pversion = "4.1.1440"; };
+      arm411454 = pkgs.callPackage ./default.nix { pversion = "4.1.1454"; };
+      arm41561 = pkgs.callPackage ./default.nix { pversion = "4.1.561"; };
+      arm41713 = pkgs.callPackage ./default.nix { pversion = "4.1.713"; };
+      arm41791 = pkgs.callPackage ./default.nix { pversion = "4.1.791"; };
+      arm41894 = pkgs.callPackage ./default.nix { pversion = "4.1.894"; };
+      arm41921 = pkgs.callPackage ./default.nix { pversion = "4.1.921"; };
+      arm50482 = pkgs.callPackage ./default.nix { pversion = "5.04.82"; };
       arm40 = arm40821;
       arm41 = arm411454;
       arm504 = arm50482;

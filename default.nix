@@ -1,8 +1,8 @@
-{stdenv, lib, fetchzip, wineWowPackages, makeWrapper}:
+{stdenv, lib, fetchzip, wineWowPackages, makeWrapper, pversion }:
 
 stdenv.mkDerivation rec {
   pname = "armcc";
-  version = "4.0.771";
+  version = pversion;
   src = fetchzip {
     url = "https://github.com/decompme/compilers/releases/download/compilers/armcc.zip";
     hash = "sha256-42DS6V6s0zs4wJCdpDUwwPtenmeVWxrqtVDQBv8bq8k=";
@@ -12,6 +12,7 @@ stdenv.mkDerivation rec {
   nativeBuildInputs = [ makeWrapper ];
 
   installPhase = ''
+    echo version
     mkdir -p $out/share/bin $out/share
     cp $src/${lib.versions.majorMinor version}/b${lib.versions.patch version}/bin/* $out/share/bin
     makeWrapper ${wineWowPackages.minimal}/bin/wine $out/bin/armar --add-flags "$out/share/bin/armar.exe"
